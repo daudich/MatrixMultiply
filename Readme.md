@@ -99,13 +99,18 @@ Pilot and the serial version so it was abandoned completely.
 
 ## How to run?
 
+*In order to run Makefile, you will have to extract the Pilot library(provided) and then change
+the working directory in the Makefile to point at the Pilot directory.*
+
 * To run the cannon.c program simply run the Makefile, and then:
 
-  For 1 processor(serial):
-      sqsub -q mpi -r 2 -n 1 -o log1 ./cannon matrices
+  * For 1 processor(serial):
 
-  For N processors(parallel):
-      sqsub -q mpi -r 2 -n N -o logN ./cannon matrices
+    	sqsub -q mpi -r 2 -n 1 -o log1 ./cannon matrices
+
+  * For N processors(parallel):
+
+      	sqsub -q mpi -r 2 -n N -o logN ./cannon matrices
 
 *NOTE: The matrices A and B are stored in the “matrices” folder. The matrices have to be both
 N x N, i.e. same size. Furthermore, the processors assigned have to be such that: N^2 mod numProcs = 0,
@@ -132,4 +137,4 @@ they have to be perfectly divisible.*
 Moreover, both programs only accept 2 matrices.
 Finally, both Makefiles have a clean dependency to clean the directory after you are done.
 
-*The mmult program was NOT written by me. You can find it [here](http://www.cs.umanitoba.ca/~comp4510/examples.html)*
+*The mmult program was NOT written by me. You can find it [here.](http://www.cs.umanitoba.ca/~comp4510/examples.html)*
